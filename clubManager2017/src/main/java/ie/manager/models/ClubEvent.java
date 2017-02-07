@@ -1,31 +1,34 @@
 //This is a bean class for club event object
 package ie.manager.models;
 
+import java.io.Serializable;
 //need this import as this bean will deal with date setting of events
 import java.util.Date;
 
 import javax.persistence.*;
 
 @Entity(name = "events")
-public class Club_event{
+public class ClubEvent implements Serializable{
 
 	//eventId is the primary key of the events table. As such it is used as Id for this Entity
 	@Id
-	@GeneratedValue
-	private Long eventId;
+	@GeneratedValue(strategy=GenerationType.AUTO)	
+	private int eventId;
 	
 	private String eventName;
 	//for date might need to add Temporal type. will investigate for now.
+	@Temporal(TemporalType.DATE)
 	private Date eventDate;
+	
 	private String eventDesc;
 	
 	//null constructor
-	public Club_event(){
+	public ClubEvent(){
 		
 	}
 	
 	//overloaded constructor
-	public Club_event(String eventName, Date eventDate, String eventDesc) {
+	public ClubEvent(String eventName, Date eventDate, String eventDesc) {
 		super();
 		this.eventName = eventName;
 		this.eventDate = eventDate;
@@ -51,11 +54,19 @@ public class Club_event{
 		this.eventDesc = eventDesc;
 	}
 
-	public Long getEventId() {
+	public int getEventId() {
 		return eventId;
 	}
 
-	public void setEventId(Long eventId) {
+	public void setEventId(int eventId) {
 		this.eventId = eventId;
 	}
+
+	@Override
+	public String toString() {
+		return "Club_event [eventId=" + eventId + ", eventName=" + eventName + ", eventDate=" + eventDate
+				+ ", eventDesc=" + eventDesc + "]";
+	}
+	
+	
 }

@@ -1,10 +1,12 @@
 //This is a bean class for club member object
 package ie.manager.models;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity(name = "members")
-public class Club_member{
+public class ClubMember implements Serializable{
 	
 	//studentId is a primary key for members table in database. As such it is used as Id for this Entity.
 	@Id
@@ -19,13 +21,12 @@ public class Club_member{
 	private String email;
 	
 	//null constructor
-	public Club_member(){
+	protected ClubMember(){
 		
 	}
 	
 	//overloaded constructor
-	public Club_member(String studentId, String sName, String sSurname, int sPhoneNo, String sEmail) {
-		super();
+	public ClubMember(String studentId, String sName, String sSurname, int sPhoneNo, String sEmail) {
 		this.studentId = studentId;
 		this.name = sName;
 		this.surname = sSurname;
@@ -63,5 +64,13 @@ public class Club_member{
 	public void setsEmail(String sEmail) {
 		this.email = sEmail;
 	}
+
+	@Override
+	public String toString() {
+		return "Club_member [studentId=" + studentId + ", name=" + name + ", surname=" + surname + ", phone=" + phone
+				+ ", email=" + email + "]";
+	}
+	
+	
 
 }
