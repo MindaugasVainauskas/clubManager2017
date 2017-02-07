@@ -4,9 +4,18 @@ package ie.manager.models;
 //need this import as this bean will deal with date setting of events
 import java.util.Date;
 
-public class Club_event {
+import javax.persistence.*;
 
+@Entity(name = "events")
+public class Club_event{
+
+	//eventId is the primary key of the events table. As such it is used as Id for this Entity
+	@Id
+	@GeneratedValue
+	private Long eventId;
+	
 	private String eventName;
+	//for date might need to add Temporal type. will investigate for now.
 	private Date eventDate;
 	private String eventDesc;
 	
@@ -40,5 +49,13 @@ public class Club_event {
 	}
 	public void setEventDesc(String eventDesc) {
 		this.eventDesc = eventDesc;
+	}
+
+	public Long getEventId() {
+		return eventId;
+	}
+
+	public void setEventId(Long eventId) {
+		this.eventId = eventId;
 	}
 }

@@ -1,13 +1,22 @@
 //This is a bean class for club member object
 package ie.manager.models;
 
-public class Club_member {
+import javax.persistence.*;
+
+@Entity(name = "members")
+public class Club_member{
 	
+	//studentId is a primary key for members table in database. As such it is used as Id for this Entity.
+	@Id
 	private String studentId;
-	private String sName;
-	private String sSurname;
-	private int sPhoneNo;
-	private String sEmail;
+	
+	private String name;
+	
+	private String surname;
+	
+	private int phone;
+	
+	private String email;
 	
 	//null constructor
 	public Club_member(){
@@ -18,10 +27,10 @@ public class Club_member {
 	public Club_member(String studentId, String sName, String sSurname, int sPhoneNo, String sEmail) {
 		super();
 		this.studentId = studentId;
-		this.sName = sName;
-		this.sSurname = sSurname;
-		this.sPhoneNo = sPhoneNo;
-		this.sEmail = sEmail;
+		this.name = sName;
+		this.surname = sSurname;
+		this.phone = sPhoneNo;
+		this.email = sEmail;
 	}
 	//mutator methods for member details
 	public String getStudentId() {
@@ -31,28 +40,28 @@ public class Club_member {
 		this.studentId = studentId;
 	}
 	public String getsName() {
-		return sName;
+		return name;
 	}
 	public void setsName(String sName) {
-		this.sName = sName;
+		this.name = sName;
 	}
 	public String getsSurname() {
-		return sSurname;
+		return surname;
 	}
 	public void setsSurname(String sSurname) {
-		this.sSurname = sSurname;
+		this.surname = sSurname;
 	}
 	public int getsPhoneNo() {
-		return sPhoneNo;
+		return phone;
 	}
 	public void setsPhoneNo(int sPhoneNo) {
-		this.sPhoneNo = sPhoneNo;
+		this.phone = sPhoneNo;
 	}
 	public String getsEmail() {
-		return sEmail;
+		return email;
 	}
 	public void setsEmail(String sEmail) {
-		this.sEmail = sEmail;
+		this.email = sEmail;
 	}
 
 }
