@@ -5,6 +5,7 @@ package ie.manager.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,8 +25,7 @@ public class MemberService {
 	//list to return all members found in the members table in database
 	public List<Member> listAllMembers(){
 		List<Member> memberList = new ArrayList<>();
-		for(Member cMember :memberRepo.findAll()){
-			System.out.println(cMember);
+		for(Member cMember :memberRepo.findAll()){			
 			memberList.add(cMember);
 		}
 		

@@ -1,14 +1,14 @@
 package ie.manager.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import ie.manager.services.EventService;
 import ie.manager.services.MemberService;
 
 
-@Controller
+@RestController
 public class IndexController {
 	
 	@Autowired
@@ -16,17 +16,17 @@ public class IndexController {
 	@Autowired
 	private EventService eventService;
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	String index(){
 		return "index";
 	}
 	
-	@RequestMapping("/member-list")
+	@GetMapping("/member-list")
 	String memberList(){
 		return memberService.listAllMembers().toString();
 	}
 	
-	@RequestMapping("/event-list")
+	@GetMapping("/event-list")
 	String eventList(){
 		return eventService.listAllEvents().toString();
 	}
