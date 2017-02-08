@@ -25,6 +25,7 @@ public class MemberService {
 	public List<Member> listAllMembers(){
 		List<Member> memberList = new ArrayList<>();
 		for(Member cMember :memberRepo.findAll()){
+			System.out.println(cMember);
 			memberList.add(cMember);
 		}
 		

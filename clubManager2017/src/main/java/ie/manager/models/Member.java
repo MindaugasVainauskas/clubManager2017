@@ -17,7 +17,7 @@ public class Member implements Serializable{
 	
 	private String surname;
 	
-	private int phone;
+	private String phone;
 	
 	private String email;
 	
@@ -27,7 +27,7 @@ public class Member implements Serializable{
 	}
 	
 	//overloaded constructor
-	public Member(String studentId, String sName, String sSurname, int sPhoneNo, String sEmail) {
+	public Member(String studentId, String sName, String sSurname, String sPhoneNo, String sEmail) {
 		this.studentid = studentId;
 		this.name = sName;
 		this.surname = sSurname;
@@ -53,10 +53,10 @@ public class Member implements Serializable{
 	public void setsSurname(String sSurname) {
 		this.surname = sSurname;
 	}
-	public int getsPhoneNo() {
+	public String getsPhoneNo() {
 		return phone;
 	}
-	public void setsPhoneNo(int sPhoneNo) {
+	public void setsPhoneNo(String sPhoneNo) {
 		this.phone = sPhoneNo;
 	}
 	public String getsEmail() {
