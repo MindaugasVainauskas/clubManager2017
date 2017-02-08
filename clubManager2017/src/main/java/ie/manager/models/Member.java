@@ -5,12 +5,13 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-@Entity(name = "members")
-public class ClubMember implements Serializable{
+@Entity
+@Table(name = "members")
+public class Member implements Serializable{
 	
 	//studentId is a primary key for members table in database. As such it is used as Id for this Entity.
 	@Id
-	private String studentId;
+	private String studentid;
 	
 	private String name;
 	
@@ -21,13 +22,13 @@ public class ClubMember implements Serializable{
 	private String email;
 	
 	//null constructor
-	protected ClubMember(){
+	protected Member(){
 		
 	}
 	
 	//overloaded constructor
-	public ClubMember(String studentId, String sName, String sSurname, int sPhoneNo, String sEmail) {
-		this.studentId = studentId;
+	public Member(String studentId, String sName, String sSurname, int sPhoneNo, String sEmail) {
+		this.studentid = studentId;
 		this.name = sName;
 		this.surname = sSurname;
 		this.phone = sPhoneNo;
@@ -35,10 +36,10 @@ public class ClubMember implements Serializable{
 	}
 	//mutator methods for member details
 	public String getStudentId() {
-		return studentId;
+		return studentid;
 	}
 	public void setStudentId(String studentId) {
-		this.studentId = studentId;
+		this.studentid = studentId;
 	}
 	public String getsName() {
 		return name;
@@ -67,7 +68,7 @@ public class ClubMember implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Club_member [studentId=" + studentId + ", name=" + name + ", surname=" + surname + ", phone=" + phone
+		return "Club_member [studentId=" + studentid + ", name=" + name + ", surname=" + surname + ", phone=" + phone
 				+ ", email=" + email + "]";
 	}
 	

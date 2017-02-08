@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ie.manager.dao.MemberRepository;
-import ie.manager.models.ClubMember;
+import ie.manager.models.Member;
 
 @Service
 @Transactional
@@ -22,9 +22,9 @@ public class MemberService {
 	}
 	
 	//list to return all members found in the members table in database
-	public List<ClubMember> listAllMembers(){
-		List<ClubMember> memberList = new ArrayList<>();
-		for(ClubMember cMember :memberRepo.findAll()){
+	public List<Member> listAllMembers(){
+		List<Member> memberList = new ArrayList<>();
+		for(Member cMember :memberRepo.findAll()){
 			memberList.add(cMember);
 		}
 		

@@ -7,65 +7,66 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-@Entity(name = "events")
-public class ClubEvent implements Serializable{
+@Entity
+@Table(name = "events")
+public class Event implements Serializable{
 
 	//eventId is the primary key of the events table. As such it is used as Id for this Entity
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)	
-	private int eventId;
+	@GeneratedValue(strategy=GenerationType.AUTO)		
+	private int eventid;
 	
-	private String eventName;
+	private String eventname;
 	//for date might need to add Temporal type. will investigate for now.
 	@Temporal(TemporalType.DATE)
-	private Date eventDate;
+	private Date eventdate;
 	
-	private String eventDesc;
+	private String eventdesc;
 	
 	//null constructor
-	public ClubEvent(){
+	public Event(){
 		
 	}
 	
 	//overloaded constructor
-	public ClubEvent(String eventName, Date eventDate, String eventDesc) {
+	public Event(String eventName, Date eventDate, String eventDesc) {
 		super();
-		this.eventName = eventName;
-		this.eventDate = eventDate;
-		this.eventDesc = eventDesc;
+		this.eventname = eventName;
+		this.eventdate = eventDate;
+		this.eventdesc = eventDesc;
 	}
 	// --------------  mutator methods ----------
 	public String getEventName() {
-		return eventName;
+		return eventname;
 	}
 	public void setEventName(String eventName) {
-		this.eventName = eventName;
+		this.eventname = eventName;
 	}
 	public Date getEventDate() {
-		return eventDate;
+		return eventdate;
 	}
 	public void setEventDate(Date eventDate) {
-		this.eventDate = eventDate;
+		this.eventdate = eventDate;
 	}
 	public String getEventDesc() {
-		return eventDesc;
+		return eventdesc;
 	}
 	public void setEventDesc(String eventDesc) {
-		this.eventDesc = eventDesc;
+		this.eventdesc = eventDesc;
 	}
 
 	public int getEventId() {
-		return eventId;
+		return eventid;
 	}
 
 	public void setEventId(int eventId) {
-		this.eventId = eventId;
+		this.eventid = eventId;
 	}
 
 	@Override
 	public String toString() {
-		return "Club_event [eventId=" + eventId + ", eventName=" + eventName + ", eventDate=" + eventDate
-				+ ", eventDesc=" + eventDesc + "]";
+		return "ClubEvent [eventId=" + eventid + ", eventName=" + eventname + ", eventDate=" + eventdate
+				+ ", eventDesc=" + eventdesc + "]";
 	}
 	
 	
