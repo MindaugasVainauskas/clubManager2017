@@ -2,15 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Spring Web Application</title>
+    <title>Club Manager 2017</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" media="screen" />
 </head>
 <body>
+	<div class="navbar navbar-inverse">
+		<a href="#" class="navbar-brand">Club Manager</a>
+		<div class="navbar navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#">Manage Members</a></li>
+				<li><a href="#">Manage Events</a></li>
+			</ul>
+		</div>
+	</div>
 <h1>Hello,</h1>
 
-<h2>This is an index page. At least for now it works ;.;</h2>
-	<div class="navbar">
-	<p>Navigation bar</p>
-	</div>
+<h2>Welcome to Club Manager 2017. This is where basic club statistics will be seen.</h2>
+<div class="container" id="mainBody">
+</div>
+	
 </body>
 </html>
