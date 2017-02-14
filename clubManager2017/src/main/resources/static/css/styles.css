@@ -1,0 +1,8 @@
+/* Following tag is used to hide button from user view so that only glyphicon is visible */
+.hidden-button {
+	appearance: none;
+	border: 0;
+	background: transparent;
+	display: inline-block;
+	vertical-align: top;	
+}

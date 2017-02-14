@@ -32,5 +32,18 @@ public class MemberService {
 		return memberList;
 	}
 	
+	//find one member for editing.
+	public Member getMember(String studentid){
+		return memberRepo.findOne(studentid);
+	}
 	
+	//save new member into database using CrudRepository included method
+	public void save(Member member){
+		memberRepo.save(member);
+	}
+			
+	//delete member from the list
+	public void delete(String studentid){
+		memberRepo.delete(studentid);
+	}
 }

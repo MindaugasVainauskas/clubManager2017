@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head lang="en">
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+	    th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" media="screen" />
+	</head>
+	<body>
+	<div class="navbar navbar-inverse">
+		<a href="#" class="navbar-brand">Club Manager</a>
+		<div class="navbar navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#" th:href="@{/}">Home</a></li>
+				<li><a href="#" th:href="@{/members}">Manage Members</a></li>
+				<li><a href="#" th:href="@{/events}">Manage Events</a></li>
+			</ul>			
+		</div>
+	</div>
+		<div class="container" id="manageDiv">		
+			<h3>Member Management form</h3>
+			<!-- Design wise I'll try to keep 2 columns empty on each side to make form look nice and centered.
+				 This is done because Bootstrap divides screen into 12 columns. -->
+			<div class="container text-center"><!-- This will align the form to center -->
+				<form class="form-horizontal" method="POST" action="addMember">
+					<div class="form-group">
+					<label class="control-label col-md-4">Student ID</label><!-- label takes up 4 columns of screen width-->
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="sId" required="required"/><!-- input takes up 4 columns too -->
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-4">First Name</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="name" required="required"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-4">Last Name</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="surname" required="required"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-4">Phone Number</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="phone" required="required"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-4">E-Mail address</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="email" required="required"/>
+						</div>					
+					</div>
+					
+					<div class="form-group">
+						<button class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+			</div>	
+		</div>		
+	</body>
+</html>

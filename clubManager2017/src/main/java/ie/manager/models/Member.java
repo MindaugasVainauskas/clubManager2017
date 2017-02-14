@@ -10,14 +10,15 @@ import javax.persistence.*;
 public class Member implements Serializable{
 	
 	//studentId is a primary key for members table in database. As such it is used as Id for this Entity.
-	@Id
-	private String studentid;
+	//size tag will be used to validate length of strings inputted
+	@Id	
+	private String studentid;	
 	
-	private String name;
+	private String name;	
 	
-	private String surname;
+	private String surname;	
 	
-	private String phone;
+	private String phone;	
 	
 	private String email;
 	
