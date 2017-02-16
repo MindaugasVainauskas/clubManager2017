@@ -37,21 +37,21 @@
 						</thead>
 						<tbody><!-- Get the member list put out one member at a time  -->
 							<tr th:each="member : ${memberList}">
-								<td th:text="${member.getStudentId()}"></td>
-								<td th:text="${member.getsName()}"></td>
-								<td th:text="${member.getsSurname()}"></td>
-								<td th:text="${member.getsPhoneNo()}"></td>
-								<td th:text="${member.getsEmail()}"></td>
+								<td th:text="${member.getstudentid()}"></td>
+								<td th:text="${member.getname()}"></td>
+								<td th:text="${member.getsurname()}"></td>
+								<td th:text="${member.getphone()}"></td>
+								<td th:text="${member.getemail()}"></td>
 								<td>
 								<!-- Some extra work is required for delete and edit buttons to work -->
 									<div class="btn-group">
 										<div class="btn-group">
-											<form method="POST" th:action="@{/memberMgmt}">
+											<form method="POST" th:action="@{/editMember(sId=${member.getstudentid()})}">
 												<button class="hidden-button"><span class="glyphicon glyphicon-edit"></span></button>
 											</form>
 										</div>
 										<div class="btn-group">
-											<form method="POST" th:action="@{/deleteMember(sId=${member.getStudentId()})}">
+											<form method="POST" th:action="@{/deleteMember(sId=${member.getstudentid()})}">
 												<button class="hidden-button"><span class="glyphicon glyphicon-trash"></span></button>
 											</form>
 										</div>

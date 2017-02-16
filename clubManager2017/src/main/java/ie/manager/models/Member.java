@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Member implements Serializable{
 	
 	//studentId is a primary key for members table in database. As such it is used as Id for this Entity.
-	//size tag will be used to validate length of strings inputted
+	//size tag will be used to validate length of strings inputed
 	@Id	
 	private String studentid;	
 	
@@ -36,34 +36,34 @@ public class Member implements Serializable{
 		this.email = sEmail;
 	}
 	//mutator methods for member details
-	public String getStudentId() {
+	public String getstudentid() {
 		return studentid;
 	}
-	public void setStudentId(String studentId) {
+	public void setstudentid(String studentId) {
 		this.studentid = studentId;
 	}
-	public String getsName() {
+	public String getname() {
 		return name;
 	}
-	public void setsName(String sName) {
+	public void setname(String sName) {
 		this.name = sName;
 	}
-	public String getsSurname() {
+	public String getsurname() {
 		return surname;
 	}
-	public void setsSurname(String sSurname) {
+	public void setsurname(String sSurname) {
 		this.surname = sSurname;
 	}
-	public String getsPhoneNo() {
+	public String getphone() {
 		return phone;
 	}
-	public void setsPhoneNo(String sPhoneNo) {
+	public void setphone(String sPhoneNo) {
 		this.phone = sPhoneNo;
 	}
-	public String getsEmail() {
+	public String getemail() {
 		return email;
 	}
-	public void setsEmail(String sEmail) {
+	public void setemail(String sEmail) {
 		this.email = sEmail;
 	}
 
