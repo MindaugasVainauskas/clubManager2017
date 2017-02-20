@@ -4,6 +4,7 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
 	    th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" media="screen" />
+	    <link rel="stylesheet" href="/css/styles.css" />
 	</head>
 	<body>
 	<div class="navbar navbar-inverse">
@@ -11,8 +12,10 @@
 		<div class="navbar navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="#" th:href="@{/}">Home</a></li>
-				<li><a href="#" th:href="@{/members}">Manage Members</a></li>
-				
+				<li><a href="#" th:href="@{/members}">Manage Members</a></li>				
+			</ul>
+			<ul class="nav navbar-nav"  style="float: right"><!-- need to align this to right side... -->
+				<li><a href="#" th:href="@{/eventMgmt}">Add New Event</a></li>				
 			</ul>
 		</div>
 	</div>
@@ -27,14 +30,29 @@
 							<tr>						
 								<th>Event Name</th>
 								<th>Event Date</th>
-								<th>Event Description</th>							
+								<th>Event Description</th>	
+								<th>Options</th>						
 							</tr>
 						</thead>
 						<tbody>
 						<tr th:each="event : ${eventList}"><!-- Display event listing one by one -->
-								<td th:text="${event.getEventName()}"></td>
-								<td th:text="${event.getEventDate()}"></td>
-								<td th:text="${event.getEventDesc()}"></td>								
+								<td th:text="${event.geteventname()}"></td>
+								<td th:text="${#dates.format(event.geteventdate(), 'dd/MM/yyyy')}"></td>
+								<td th:text="${event.geteventdesc()}"></td>
+								<td>
+									<div class="btn-group">
+										<div class="btn-group">
+											<form method="POST" th:action="@{/editEvent(eventid=${event.geteventid()})}">
+												<button class="hidden-button"><span class="glyphicon glyphicon-edit"></span></button>
+											</form>
+										</div>
+										<div class="btn-group">
+											<form method="POST" th:action="@{/deleteEvent(eventid=${event.geteventid()})}">
+												<button class="hidden-button"><span class="glyphicon glyphicon-trash"></span></button>
+											</form>
+										</div>
+									</div>
+								</td>								
 							</tr></tbody>
 					</table>
 				</div>

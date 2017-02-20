@@ -3,7 +3,7 @@ package ie.manager.models;
 
 import java.io.Serializable;
 //need this import as this bean will deal with date setting of events
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.*;
 
@@ -18,7 +18,7 @@ public class Event implements Serializable{
 	
 	private String eventname;
 	//for date might need to add Temporal type. will investigate for now.
-	@Temporal(TemporalType.DATE)
+	
 	private Date eventdate;
 	
 	private String eventdesc;
@@ -36,30 +36,30 @@ public class Event implements Serializable{
 		this.eventdesc = eventDesc;
 	}
 	// --------------  mutator methods ----------
-	public String getEventName() {
+	public String geteventname() {
 		return eventname;
 	}
-	public void setEventName(String eventName) {
+	public void seteventname(String eventName) {
 		this.eventname = eventName;
 	}
-	public Date getEventDate() {
+	public Date geteventdate() {
 		return eventdate;
 	}
-	public void setEventDate(Date eventDate) {
+	public void seteventdate(Date eventDate) {
 		this.eventdate = eventDate;
 	}
-	public String getEventDesc() {
+	public String geteventdesc() {
 		return eventdesc;
 	}
-	public void setEventDesc(String eventDesc) {
+	public void seteventdesc(String eventDesc) {
 		this.eventdesc = eventDesc;
 	}
 
-	public int getEventId() {
+	public int geteventid() {
 		return eventid;
 	}
 
-	public void setEventId(int eventId) {
+	public void seteventid(int eventId) {
 		this.eventid = eventId;
 	}
 

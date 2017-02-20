@@ -1,5 +1,7 @@
 package ie.manager.controllers;
 
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ie.manager.models.Event;
 import ie.manager.models.Member;
 import ie.manager.services.EventService;
 import ie.manager.services.MemberService;
@@ -27,6 +30,7 @@ public class IndexController {
 		return "index";
 	}	
 	
+	// ---------------------------- Methods for event manipulation ----------------------------------------------
 	//show list of all upcoming events
 	@RequestMapping("/events")
 	String events(Model model){
@@ -34,6 +38,34 @@ public class IndexController {
 		return "events";
 	}
 	
+	//show member management form
+	@GetMapping("/eventMgmt")
+	String eventMgmt(@ModelAttribute Event event){			
+		return "eventMgmt";
+	}
+	
+	//add new upcoming event	
+	@PostMapping("/addEvent")
+	String addEvent(@ModelAttribute Event event, @RequestParam String eventname, @RequestParam Date eventdate, @RequestParam String eventdesc){
+		event = new Event(eventname, eventdate, eventdesc);
+		eventService.save(event);
+		return "redirect:/eventMgmt";
+	}
+	
+	//edit member's details
+	@PostMapping("/editEvent")
+	String editEvent(@ModelAttribute Event event, Model model, @RequestParam int eventid){			
+		model.addAttribute("event", eventService.getEvent(eventid));				
+		return "eventMgmt";
+	}
+	//delete event from the list
+	@PostMapping("/deleteEvent")
+	String deleteEvent(@RequestParam int eventid){		
+		eventService.deleteEvent(eventid);		
+		return "redirect:/events";//redirect refreshes page
+	}
+	
+	// ------------------ Member methods --------------------------------------------------------
 	//show list of all members
 	@RequestMapping("/members")
 	String listMembers(Model model){

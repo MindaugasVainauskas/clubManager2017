@@ -21,9 +21,7 @@
 			<!-- Design wise I'll try to keep 2 columns empty on each side to make form look nice and centered.
 				 This is done because Bootstrap divides screen into 12 columns. -->
 			<div class="container text-center"><!-- This will align the form to center -->
-				<form class="form-horizontal" method="POST" th:action="@{/addMember}" th:object="${member}">
-					<!-- <input type="hidden" th:field="*{id}"/>
-					<input type="hidden" th:field="*{version}"/> -->
+				<form class="form-horizontal" method="POST" th:action="@{/addMember}" th:object="${member}">					
 					<div class="form-group">
 					<label class="control-label col-md-4">Student ID</label><!-- label takes up 4 columns of screen width-->
 						<div class="col-md-4">

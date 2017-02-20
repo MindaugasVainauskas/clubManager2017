@@ -31,9 +31,18 @@ public class EventService {
 		return eventList;
 	}
 	
-	public void addEvent(String eName, Date eDate, String eDesc){
-		
-		Event newEvent = new Event(eName, eDate, eDesc);
+	//Call repo to delete event by ID
+	public void deleteEvent(int eventId) {
+		eventRepository.delete(eventId);		
+	}
+
+	//save new event into DB
+	public void save(Event event) {
+		eventRepository.save(event);		
+	}
+
+	public Object getEvent(int eventid) {		
+		return eventRepository.findOne(eventid);
 	}
 	
 
