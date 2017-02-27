@@ -31,6 +31,7 @@ public class EventService {
 		return eventList;
 	}
 	
+	
 	//Call repo to delete event by ID
 	public void deleteEvent(int eventId) {
 		eventRepository.delete(eventId);		
@@ -39,11 +40,14 @@ public class EventService {
 	//save new event into DB
 	public void save(Event event) {
 		eventRepository.save(event);		
-	}
-
-	public Object getEvent(int eventid) {		
-		return eventRepository.findOne(eventid);
-	}
+	}	
 	
+	public Event getEvent(int eventid) {		
+		return eventRepository.findOne(eventid);
+	}	
+	
+	public boolean entityExists(int eventid){
+		return eventRepository.exists(eventid);
+	}
 
 }

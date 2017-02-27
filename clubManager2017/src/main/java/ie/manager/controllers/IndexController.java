@@ -45,12 +45,23 @@ public class IndexController {
 	}
 	
 	//add new upcoming event	
-	@PostMapping("/addEvent")
-	String addEvent(@ModelAttribute Event event, @RequestParam String eventname, @RequestParam Date eventdate, @RequestParam String eventdesc){
-		event = new Event(eventname, eventdate, eventdesc);
-		eventService.save(event);
+	@PostMapping("/addEvent")//will look into transferring current id from event entity
+	String addEvent(@ModelAttribute Event event, @RequestParam int eventid, @RequestParam String eventname, @RequestParam Date eventdate, @RequestParam String eventdesc){		
+		if(!(eventService.entityExists(eventid))){			
+			event = new Event(eventname, eventdate, eventdesc);
+			eventService.save(event);
+		}else{
+			//if event exists I just need to update it
+			Event ev = eventService.getEvent(eventid);				
+			ev.seteventname(event.geteventname());
+			ev.seteventdate(event.geteventdate());
+			ev.seteventdesc(event.geteventdesc());
+			eventService.save(ev);
+		}
+		
 		return "redirect:/eventMgmt";
-	}
+	}	
+	
 	
 	//edit member's details
 	@PostMapping("/editEvent")
