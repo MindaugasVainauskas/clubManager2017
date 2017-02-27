@@ -6,3 +6,17 @@
 	display: inline-block;
 	vertical-align: top;	
 }
+
+/* Following tags are used to align div containers for index page to show statistics */
+.eventCol {
+	float: right;
+}
+
+.memberCol {
+	float: left;
+}
+
+/* Following tag is used to make number representations for member and event counts to not be left aligned. */
+.number {
+	text-align: center;
+}

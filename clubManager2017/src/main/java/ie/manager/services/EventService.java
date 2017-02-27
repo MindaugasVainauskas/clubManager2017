@@ -46,8 +46,13 @@ public class EventService {
 		return eventRepository.findOne(eventid);
 	}	
 	
+	//check if entity with given id exists in database
 	public boolean entityExists(int eventid){
 		return eventRepository.exists(eventid);
 	}
 
+	//count how many events there are
+	public int countEvents(){
+		return (int) eventRepository.count();
+	}
 }

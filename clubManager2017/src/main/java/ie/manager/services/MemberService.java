@@ -46,4 +46,9 @@ public class MemberService {
 	public void delete(String studentid){
 		memberRepo.delete(studentid);
 	}
+	
+	//count how many members there are
+	public int countMembers(){
+		return (int) memberRepo.count();
+	}
 }

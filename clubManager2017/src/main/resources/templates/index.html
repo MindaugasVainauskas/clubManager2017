@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
     th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" media="screen" />
+     <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
 	<div class="navbar navbar-inverse">
@@ -19,8 +20,17 @@
 	</div>
 <h1>Hello,</h1>
 
-<h2>Welcome to Club Manager 2017. This is where basic club statistics will be seen.</h2>
-<div class="container" id="mainBody">
+<h2>Welcome to Club Manager 2017. </h2>
+
+<div class="container" id="mainBody" >
+	<div class="memberCol">
+		<h3>Current Member count:</h3>
+		<h2 class="number" th:utext = "${memberCount}"></h2>		
+	</div>
+	<div class="eventCol">
+		<h3>Upcoming Event count:</h3>
+		<h2 class="number" th:utext = "${eventCount}"></h2>		
+	</div>
 </div>
 	
 </body>

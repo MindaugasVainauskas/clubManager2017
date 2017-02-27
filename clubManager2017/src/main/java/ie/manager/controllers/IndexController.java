@@ -26,7 +26,9 @@ public class IndexController {
 	private EventService eventService;
 
 	@GetMapping("/")
-	String index(){
+	String index(Model model){		
+		model.addAttribute("memberCount", memberService.countMembers());
+		model.addAttribute("eventCount", eventService.countEvents());
 		return "index";
 	}	
 	
