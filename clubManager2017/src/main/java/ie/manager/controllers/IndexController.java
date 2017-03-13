@@ -24,6 +24,11 @@ public class IndexController {
 	private MemberService memberService;
 	@Autowired
 	private EventService eventService;
+	
+	@RequestMapping("/login")
+	String login(){
+		return "login";
+	}
 
 	@GetMapping("/")
 	String index(Model model){		

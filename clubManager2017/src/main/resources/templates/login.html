@@ -8,23 +8,26 @@
 	<div class="navbar navbar-inverse">
 		<a href="#" class="navbar-brand">Club Manager</a>		
 	</div>
-	<div class="container">
-		<form class="form-horizontal" method ="POST"th:action="@{/login}" th:object="${manager}">
+	<div class="container">		
+		<form class="form-horizontal" method ="POST" th:action="@{/login}">
+			<div class="form-group text-center">
+				<h2>Please log in to access member details!</h2>
+			</div>		
 			<div class="form-group">
-				<input type="hidden" th:field="*{manId}" />				
+				<!-- <input type="hidden" th:field="*{manId}" />	 -->			
 				<label class="control-label col-md-4">Manager name</label><!-- label takes up 4 columns of screen width-->
 				<div class="col-md-4">
-					<input type="text" class="form-control" required="required" th:field="*{name}"/>
+					<input type="text" class="form-control" required="required" id="username" name="username"/>
 				</div>
 			</div>	
 			<div class="form-group">					
 				<label class="control-label col-md-4">Password</label><!-- label takes up 4 columns of screen width-->
 				<div class="col-md-4">
-					<input type="text" class="form-control" required="required" th:field="*{password}"/>
+					<input type="password" class="form-control" required="required" id="password" name="password"/>
 				</div>
 			</div>	
 			<div class="form-group">
-				<div class="col-md-4">
+				<div class="text-center">
 					<button class="btn btn-primary">Submit</button>
 				</div>
 			</div>			
