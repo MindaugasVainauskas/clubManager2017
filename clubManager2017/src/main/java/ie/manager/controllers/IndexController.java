@@ -45,7 +45,7 @@ public class IndexController {
 		return "events";
 	}
 	
-	//show member management form
+	//show event management form
 	@GetMapping("/eventMgmt")
 	String eventMgmt(@ModelAttribute Event event){			
 		return "eventMgmt";

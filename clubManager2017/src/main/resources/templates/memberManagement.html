@@ -16,48 +16,61 @@
 			</ul>			
 		</div>
 	</div>
-		<div class="container" id="manageDiv">		
+		<div class="container" id="manageDiv">	
+		<div class="form-group text-center">
 			<h3>Member Management form</h3>
+		</div>	
+			
 			<!-- Design wise I'll try to keep 2 columns empty on each side to make form look nice and centered.
 				 This is done because Bootstrap divides screen into 12 columns. -->
 			<div class="container text-center"><!-- This will align the form to center -->
-				<form class="form-horizontal" method="POST" th:action="@{/addMember}" th:object="${member}">					
+				<form class="form-horizontal" method="POST" th:action="@{/addMember}" th:object="${member}" data-toggle="validator">					
 					<div class="form-group">
 					<label class="control-label col-md-4">Student ID</label><!-- label takes up 4 columns of screen width-->
-						<div class="col-md-4">
+						<div>
 							<!-- If form is in edit mode. User sees below link with student ID tab non editable -->
 							<div th:if="${member.getstudentid() != null}">	
-								<input type="text" class="form-control" required="required" th:field="*{studentid}" th:readonly="readonly"/>
+								<div class="input-group col-md-4">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+									<input type="text" class="form-control" required="required" th:field="*{studentid}" th:readonly="readonly"/>
+								</div>
 							</div>
 							<!-- If no student id exists then form is in new member mode and Student ID can be entered. -->
 							<div th:if="${member.getstudentid() == null}">
-								<input type="text" class="form-control" required="required" th:field="*{studentid}"/>
+								<div class="input-group col-md-4">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+									<input type="text" class="form-control" maxlength="9" required="required" th:field="*{studentid}"/>
+								</div>
 							</div>
 							
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-4">First Name</label>
-						<div class="col-md-4">
-							<input type="text" class="form-control" required="required" th:field="*{name}"/>
+						<div class="input-group col-md-4">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input type="text" class="form-control" maxlength="20" required="required" th:field="*{name}"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-4">Last Name</label>
-						<div class="col-md-4">
-							<input type="text" class="form-control" required="required" th:field="*{surname}"/>
+						<div class="input-group col-md-4">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input type="text" class="form-control" maxlength="20" required="required" th:field="*{surname}"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-4">Phone Number</label>
-						<div class="col-md-4">
-							<input type="text" class="form-control" required="required" th:field="*{phone}"/>
+						<div class="input-group col-md-4">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+							<input type="number" class="form-control" maxlength="15" required="required" th:field="*{phone}"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-4">E-Mail address</label>
-						<div class="col-md-4">
-							<input type="text" class="form-control" required="required" th:field="*{email}"/>
+						<div class="input-group col-md-4">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+							<input type="email" class="form-control" maxlength="30" required="required" th:field="*{email}"/>
 						</div>					
 					</div>
 					
