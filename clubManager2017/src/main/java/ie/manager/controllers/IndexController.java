@@ -2,7 +2,14 @@ package ie.manager.controllers;
 
 import java.sql.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -117,5 +124,18 @@ public class IndexController {
 	String deleteMember(@RequestParam String sId){		
 		memberService.delete(sId);		
 		return "redirect:/members";//redirect refreshes page
+	}
+	
+	// ---------------------------- Logout method -------------------------------------
+	//logs user out of the application
+	@GetMapping("/logout")
+	String logout(HttpServletRequest request, HttpServletResponse response){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		if(authentication != null){
+			new SecurityContextLogoutHandler().logout(request, response, authentication);
+		}
+		
+		return "redirect:/login";
 	}
 }
