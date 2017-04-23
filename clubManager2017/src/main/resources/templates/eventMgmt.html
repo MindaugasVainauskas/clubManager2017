@@ -19,7 +19,10 @@
 			</ul>		
 		</div>
 	</div>
-		<div class="container" id="manageDiv">		
+		<div class="container" id="manageDiv">	
+			<div class="form-group text-center">
+				<h3>Event Management form</h3>
+			</div>	
 			<form class="form-horizontal" method="POST" th:action="@{/addEvent}" th:object="${event}">
 				<div class="form-group">
 				<input type="hidden" th:field="*{eventid}" />				
